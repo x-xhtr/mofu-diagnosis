@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#8aa7bf" />
+  <meta name="description" content="相手との付き合い方を、優劣ではなく景色として見つける16タイプ診断。回答は端末内で処理され、収集されません。" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="canonical" href="https://x-xhtr.github.io/mofu-diagnosis/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://x-xhtr.github.io/mofu-diagnosis/" />
+  <meta property="og:title" content="MOFU診断" />
+  <meta property="og:description" content="ふたりの時間に、どんな景色が見える？ 4つのやさしい軸から見つける16タイプ診断。" />
+  <meta property="og:image" content="https://x-xhtr.github.io/mofu-diagnosis/assets/social/mofu-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@x_xhtr" />
+  <meta name="twitter:creator" content="@x_xhtr" />
+  <meta name="twitter:title" content="MOFU診断" />
+  <meta name="twitter:description" content="ふたりの時間に、どんな景色が見える？ 4つのやさしい軸から見つける16タイプ診断。" />
+  <meta name="twitter:image" content="https://x-xhtr.github.io/mofu-diagnosis/assets/social/mofu-card.jpg" />
+  <title>MOFU診断</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" data-go="home" aria-label="MOFU診断 ホームへ">
+        <span class="brand-mark"><img src="assets/branding/ai-icon.webp" alt="" /></span>
+        <span>MOFU診断</span>
+      </button>
+      <div class="topbar-note">全員MOFU。でも、同じMOFUじゃない。</div>
+    </header>
+
+    <main id="app" class="page" aria-live="polite"></main>
+
+    <footer class="footer">
+      <div class="footer-line">MOFU diagnosis beta v0.7.2</div>
+      <div class="footer-line">違いを可視化する。でも、順位にはしない。 <a href="https://x.com/x_xhtr" target="_blank" rel="noreferrer">created by @x_xhtr</a></div>
+    </footer>
+  </div>
+
+  <template id="home-template">
+    <section class="hero home-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">16 landscapes for your bond</p>
+        <div class="hero-title-wrap">
+          <h1><span class="hero-line">ふたりの時間に、</span><span class="hero-line hero-accent">どんな景色が見える？</span></h1>
+          <svg class="title-sparkles" viewBox="0 0 80 58" aria-hidden="true">
+            <path d="M18 3 C20 14 24 18 35 20 C24 22 20 26 18 37 C16 26 12 22 1 20 C12 18 16 14 18 3Z" />
+            <path d="M57 23 C59 31 62 34 70 36 C62 38 59 41 57 49 C55 41 52 38 44 36 C52 34 55 31 57 23Z" />
+          </svg>
+        </div>
+        <p class="lead">MOFU診断は、相手との付き合い方を「良い・悪い」ではなく、4つのやさしい軸から見つける16タイプ診断です。</p>
+        <p class="term-note">この診断では、<strong>「相手」</strong>は今回思い浮かべている相手、<strong>「ほかの人」「誰か」</strong>は友人・知人・界隈の人など、その相手以外の人を指します。</p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="start-btn">診断をはじめる <span aria-hidden="true">→</span></button>
+          <button class="ghost-btn" id="about-btn">4つの軸を見る <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="tiny-note">β版：28問 / 約4〜6分</p>
+        <p class="privacy-note"><strong>回答は収集されません。</strong>この診断は端末内で計算され、回答内容はサーバーへ送信・保存されません。</p>
+      </div>
+      <div class="hero-visual" role="img" aria-label="海辺でふたりのマスコットが海を眺めているイラスト">
+        <div class="hero-image-fade"></div>
+      </div>
+    </section>
+
+    <section class="intro-cards" id="axes" aria-label="4つのMOFU軸">
+      <article class="mini-card m-color"><span class="axis-letter">M</span><div><h2>Machiawase ⇔ Mainichi</h2><p class="axis-kana">まちあわせ ⇔ まいにち</p><p class="axis-pair"><span>あいにいくひととき</span><span class="axis-pair-arrow">⇅</span><span>いつものおとなり</span></p></div></article>
+      <article class="mini-card o-color"><span class="axis-letter">O</span><div><h2>Odoroki ⇔ Okaeri</h2><p class="axis-kana">おどろき ⇔ おかえり</p><p class="axis-pair"><span>はじめてのわくわく</span><span class="axis-pair-arrow">⇅</span><span>おかえりのあたたかさ</span></p></div></article>
+      <article class="mini-card f-color"><span class="axis-letter">F</span><div><h2>Funade ⇔ Funatsuki</h2><p class="axis-kana">ふなで ⇔ ふなつき</p><p class="axis-pair"><span>海のふかくへ</span><span class="axis-pair-arrow">⇅</span><span>暮らしの岸辺へ</span></p></div></article>
+      <article class="mini-card u-color"><span class="axis-letter">U</span><div><h2>Utatane ⇔ Utage</h2><p class="axis-kana">うたたね ⇔ うたげ</p><p class="axis-pair"><span>ちいさなひだまり</span><span class="axis-pair-arrow">⇅</span><span>にぎやかなひろば</span></p></div></article>
+    </section>
+  </template>
+
+  <template id="quiz-template">
+    <section class="quiz-wrap">
+      <div class="quiz-head">
+        <div>
+          <p class="eyebrow">Question <span id="question-label">01</span></p>
+          <h1>今のあなたに近いほうを選んでください</h1>
+        </div>
+        <div class="progress-copy"><span id="q-now">1</span> / <span id="q-total">28</span></div>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="progress-fill"></div></div>
+
+      <article class="question-card panel-grid">
+        <div class="q-mascot" aria-hidden="true"><img src="assets/mascots/user.webp" alt=""></div>
+        <div class="question-content">
+          <div class="choice-pair">
+            <div class="choice-side left-side a-side"><span class="side-label side-label-a">A</span><p id="left-text"></p></div>
+            <div class="pair-arrow" aria-hidden="true">⇄</div>
+            <div class="choice-side right-side b-side"><span class="side-label side-label-b">B</span><p id="right-text"></p></div>
+          </div>
+
+          <fieldset class="scale-fieldset">
+            <legend>どちらに近いですか</legend>
+            <div class="scale-options" id="scale-options"></div>
+          </fieldset>
+
+          <div class="quiz-nav">
+            <button class="ghost-btn" id="prev-btn">← ひとつ戻る</button>
+            <button class="primary-btn" id="next-btn" disabled>次へ →</button>
+          </div>
+        </div>
+      </article>
+      <p class="tiny-note center">迷ったら「まんなか」で大丈夫です。今の感覚に近いほうを選んでください。</p>
+    </section>
+  </template>
+
+  <template id="tie-template">
+    <section class="quiz-wrap tie-wrap">
+      <div class="quiz-head">
+        <div>
+          <p class="eyebrow">One more choice</p>
+          <h1>この軸は、ちょうど真ん中でした</h1>
+        </div>
+        <div class="progress-copy" id="tie-count">1 / 1</div>
+      </div>
+      <article class="question-card tie-card panel-grid">
+        <div class="q-mascot" aria-hidden="true"><img src="assets/mascots/pair.webp" alt=""></div>
+        <div class="question-content">
+          <p class="tie-note">バーは真ん中のままです。結果カードを1枚選ぶためだけに、どちらがほんの少し近いか選んでね。</p>
+          <h2 class="tie-axis" id="tie-axis"></h2>
+          <div class="tie-choices">
+            <button class="tie-choice tie-choice-a" id="tie-left-btn"><span class="tie-side-label">A</span><strong id="tie-left"></strong></button>
+            <button class="tie-choice tie-choice-b" id="tie-right-btn"><span class="tie-side-label">B</span><strong id="tie-right"></strong></button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </template>
+
+  <template id="result-template">
+    <section class="result-wrap">
+      <div class="result-head">
+        <div>
+          <p class="eyebrow">Your MOFU landscape</p>
+          <h1 id="result-title"></h1>
+          <p id="result-category" class="category-pill"></p>
+          <p id="result-mofu" class="mofu-line"></p>
+        </div>
+        <img src="assets/mascots/ai.webp" class="result-mascot" alt="AIマスコット" />
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card-frame">
+          <img id="result-card" alt="診断結果カード" />
+        </div>
+        <div class="result-details">
+          <article class="detail-card">
+            <h2>この景色について</h2>
+            <p id="result-description"></p>
+          </article>
+
+          <article class="detail-card">
+            <h2>4つのMOFUバランス</h2>
+            <div id="axis-results" class="axis-results"></div>
+            <p class="tiny-note">●は回答から出した相対的な位置。16タイプは、その時点でいちばん近い景色です。</p>
+          </article>
+
+          <article class="detail-card mofu-explain-card">
+            <h2>あなたの4つのMOFU</h2>
+            <p class="mofu-explain-intro">4つの軸それぞれについて、今回の回答で少し近かった景色を紹介します。どちらが優れているという意味ではなく、今の傾向を読むためのものです。</p>
+            <div id="mofu-explanations" class="mofu-explanations"></div>
+          </article>
+
+          <article class="detail-card share-card">
+            <h2>シェア画像</h2>
+            <p class="share-lead">結果イラストとMOFUバランスから、共有用の画像を1枚つくれます。まずは下のボタンで作ってみてね。</p>
+            <div class="share-actions">
+              <button class="primary-btn" id="build-share-btn">シェア画像を作る</button>
+              <button class="ghost-btn" id="download-share-btn" hidden>シェア画像を保存</button>
+              <button class="ghost-btn" id="share-share-btn" hidden>画像つきでシェア</button>
+              <button class="x-share-btn" id="share-x-btn">Xでシェア</button>
+            </div>
+            <p class="tiny-note share-note">Xでは結果名・URL・#MOFU診断を入れた投稿画面を開けます。画像つき共有は、先にシェア画像を作ってね。</p>
+            <div id="share-preview-wrap" class="share-preview-wrap" hidden>
+              <img id="share-preview" alt="共有画像プレビュー" class="share-preview" />
+            </div>
+          </article>
+
+          <div class="result-actions">
+            <button class="primary-btn" id="retry-btn">もう一度診断する</button>
+            <button class="ghost-btn" id="home-btn">ホームへ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
