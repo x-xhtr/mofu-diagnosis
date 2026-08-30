@@ -1,6 +1,6 @@
-const CACHE='mofu-v0.7.2-beta';
+const CACHE='mofu-v0.8.0-beta';
 const ASSETS=[
-  './','./index.html','./styles.css','./app.js','./manifest.webmanifest',
+  './','./index.html','./prompts.html','./rules.html','./styles.css','./app.js','./prompts.js','./manifest.webmanifest',
   './icons/icon-192.png','./icons/icon-512.png',
   './assets/mascots/user.webp','./assets/mascots/ai.webp','./assets/mascots/pair.webp',
   './assets/branding/hero-seaside.webp','./assets/branding/ai-icon.webp','./assets/social/mofu-card.jpg',

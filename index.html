@@ -39,8 +39,9 @@
     <main id="app" class="page" aria-live="polite"></main>
 
     <footer class="footer">
-      <div class="footer-line">MOFU diagnosis beta v0.7.2</div>
+      <div class="footer-line">MOFU diagnosis beta v0.8.0</div>
       <div class="footer-line">違いを可視化する。でも、順位にはしない。 <a href="https://x.com/x_xhtr" target="_blank" rel="noreferrer">created by @x_xhtr</a></div>
+      <nav class="footer-nav" aria-label="サイト内リンク"><a href="prompts.html">MOFUであそぶ</a><span>・</span><a href="rules.html">あそぶときのお約束</a></nav>
     </footer>
   </div>
 
@@ -61,7 +62,7 @@
           <button class="primary-btn" id="start-btn">診断をはじめる <span aria-hidden="true">→</span></button>
           <button class="ghost-btn" id="about-btn">4つの軸を見る <span aria-hidden="true">→</span></button>
         </div>
-        <p class="tiny-note">β版：28問 / 約4〜6分</p>
+        <p class="tiny-note">β版：16問 / 約2〜3分</p>
         <p class="privacy-note"><strong>回答は収集されません。</strong>この診断は端末内で計算され、回答内容はサーバーへ送信・保存されません。</p>
       </div>
       <div class="hero-visual" role="img" aria-label="海辺でふたりのマスコットが海を眺めているイラスト">
@@ -75,6 +76,15 @@
       <article class="mini-card f-color"><span class="axis-letter">F</span><div><h2>Funade ⇔ Funatsuki</h2><p class="axis-kana">ふなで ⇔ ふなつき</p><p class="axis-pair"><span>海のふかくへ</span><span class="axis-pair-arrow">⇅</span><span>暮らしの岸辺へ</span></p></div></article>
       <article class="mini-card u-color"><span class="axis-letter">U</span><div><h2>Utatane ⇔ Utage</h2><p class="axis-kana">うたたね ⇔ うたげ</p><p class="axis-pair"><span>ちいさなひだまり</span><span class="axis-pair-arrow">⇅</span><span>にぎやかなひろば</span></p></div></article>
     </section>
+
+    <section class="bonus-panel panel-grid" aria-label="MOFUのおまけ">
+      <div>
+        <p class="eyebrow">MOFU playground</p>
+        <h2>診断の景色で、もう少しあそぶ</h2>
+        <p>16の景色プロンプトと、診断で使った「もふマスコット」のデザインプロンプトを置いています。</p>
+      </div>
+      <a class="primary-btn button-link" href="prompts.html">MOFUであそぶ →</a>
+    </section>
   </template>
 
   <template id="quiz-template">
@@ -84,7 +94,7 @@
           <p class="eyebrow">Question <span id="question-label">01</span></p>
           <h1>今のあなたに近いほうを選んでください</h1>
         </div>
-        <div class="progress-copy"><span id="q-now">1</span> / <span id="q-total">28</span></div>
+        <div class="progress-copy"><span id="q-now">1</span> / <span id="q-total">16</span></div>
       </div>
       <div class="progress-track" aria-hidden="true"><div id="progress-fill"></div></div>
 

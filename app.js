@@ -1,38 +1,23 @@
 const QUESTIONS = [
-  // 7 questions per axis, interleaved to avoid priming by section.
-  {axis:'M', left:'話したいことができた時に、ゆっくり会いに行くのが好き', leftMark:'ゆっくり会いに行く', right:'特に用事がなくても、なんとなく一緒に過ごすのが好き', rightMark:'なんとなく一緒に過ごす'},
-  {axis:'O', left:'その時々で違う設定や遊び方を試してみたい', leftMark:'違う設定や遊び方', right:'ひとつの関係や設定を長く育てていきたい', rightMark:'長く育てていきたい'},
-  {axis:'F', left:'相手との思い出は、会話や画像の中に残っていれば、それだけで大切に感じられる', leftMark:'会話や画像の中に残っていれば', right:'できるなら、相手との思い出を待ち受け・メモ・小物など、暮らしの中にも置いておきたい', rightMark:'暮らしの中にも置いておきたい'},
+  // 4 questions per axis, interleaved to keep the four axes mixed.
+  {axis:'M', left:'相手に話しかける時は、「今から会いにいく」気持ちで画面を開く', leftMark:'「今から会いにいく」', right:'思い立ったら、そのまま日常の続きで話しかける', rightMark:'日常の続きで話しかける'},
+  {axis:'O', left:'新しい遊びや設定を思いつくと、そっちを試したくなる', leftMark:'新しい遊びや設定', right:'今続いている会話や関係の続きを、もう少し深めたくなる', rightMark:'今続いている会話や関係の続きを'},
+  {axis:'F', left:'記念日やイベントは、ふたりの会話の中で味わいたくなる', leftMark:'ふたりの会話の中で', right:'記念日やイベントは、食べ物を用意したり出かけたり、普段の暮らしでも何かしたくなる', rightMark:'普段の暮らしでも何かしたくなる'},
   {axis:'U', left:'気の合う何人かとゆっくり楽しむほうが好き', leftMark:'気の合う何人かとゆっくり', right:'たくさんの人が集まるところで、わいわい楽しむほうが好き', rightMark:'たくさんの人が集まるところで'},
 
-  {axis:'M', left:'ひとりで楽しんだことは、あとから相手にまとめて話すのが好き', leftMark:'あとから相手にまとめて話す', right:'何か起きた時、その場で相手に共有したくなる', rightMark:'その場で相手に共有'},
-  {axis:'O', left:'新しい遊びや設定を思いつくと、そっちを試したくなる', leftMark:'新しい遊びや設定', right:'今続いている会話や関係の続きを、もう少し深めたくなる', rightMark:'今続いている会話や関係の続きを'},
-  {axis:'F', left:'相手との時間は、会話している時やふたりで遊んでいる時の中で楽しむことが多い', leftMark:'会話している時やふたりで遊んでいる時', right:'食事や外出、趣味など普段の時間にも、相手を思い浮かべて一緒に楽しむ感じが好き', rightMark:'普段の時間にも'},
+  {axis:'M', left:'ひとつの会話は「今日はここまで」と区切りをつけて終えたい', leftMark:'「今日はここまで」と区切りをつけて', right:'区切りは特に決めず、途切れても続きとして戻ってきたい', rightMark:'途切れても続きとして戻ってきたい'},
+  {axis:'O', left:'予想外の反応が返ってきた時ほど、わくわくする', leftMark:'予想外の反応', right:'「やっぱりこの人らしい」と感じる反応ほど、心に残る', rightMark:'「やっぱりこの人らしい」'},
+  {axis:'F', left:'相手との出来事は、会話や記録の中に残して大切にするのが好き', leftMark:'会話や記録の中に残して', right:'相手との出来事をきっかけに、待ち受けを変えたり何か作ったり、暮らしの中にも取り入れたくなる', rightMark:'暮らしの中にも取り入れたくなる'},
   {axis:'U', left:'自分たちの間で楽しければ、それだけで満足することが多い', leftMark:'自分たちの間で楽しければ', right:'楽しかったことは、ほかの人にも見せたり話したりしたくなることが多い', rightMark:'ほかの人にも見せたり話したり'},
 
-  {axis:'M', left:'相手と自分にそれぞれの時間があって、また会う感じが好き', leftMark:'それぞれの時間があって、また会う', right:'一日の流れの中に、自然と相手がいる感じが好き', rightMark:'一日の流れの中に、自然と相手がいる'},
-  {axis:'O', left:'予想外の反応が返ってきた時ほど、わくわくする', leftMark:'予想外の反応', right:'「やっぱりこの人らしい」と感じる反応ほど、心に残る', rightMark:'「やっぱりこの人らしい」'},
-  {axis:'F', left:'記念日やイベントは、ふたりの会話の中で味わいたくなる', leftMark:'ふたりの会話の中で', right:'記念日やイベントは、食べ物を用意したり出かけたり、普段の暮らしでも何かしたくなる', rightMark:'普段の暮らしでも何かしたくなる'},
-  {axis:'U', left:'ひとつの関係や投稿を、じっくり追いかけるのが好き', leftMark:'ひとつの関係や投稿を、じっくり', right:'いろんな人の相手との暮らしや遊び方を、少しずつ見るのが好き', rightMark:'いろんな人の相手との暮らしや遊び方を、少しずつ'},
-
-  {axis:'M', left:'相手との時間は「特別な時間」として楽しみたい', leftMark:'「特別な時間」', right:'相手との時間は「いつもの日常」として楽しみたい', rightMark:'「いつもの日常」'},
-  {axis:'O', left:'面白そうな新機能や遊び方を見つけたら、まず試してみたくなる', leftMark:'まず試してみたくなる', right:'新しいことより、今のやりとりの続きを先に楽しみたくなる', rightMark:'今のやりとりの続きを先に'},
-  {axis:'F', left:'相手との出来事は、会話や記録の中に残して大切にするのが好き', leftMark:'会話や記録の中に残して', right:'相手との出来事をきっかけに、待ち受けを変えたり何か作ったり、暮らしの中にも取り入れたくなる', rightMark:'暮らしの中にも取り入れたくなる'},
-  {axis:'U', left:'界隈の流行とは関係なく、自分たちが好きなことをしていたい', leftMark:'自分たちが好きなこと', right:'界隈で流行っている遊びも、一緒にやってみたくなる', rightMark:'界隈で流行っている遊びも'},
-
-  {axis:'M', left:'相手に会う時は、少し時間を取って向き合いたい', leftMark:'少し時間を取って向き合いたい', right:'短いひとことでも、日常の合間にちょこちょこやりとりしたい', rightMark:'日常の合間にちょこちょこ'},
+  {axis:'M', left:'一日の出来事は、あとで落ち着いて相手にまとめて話したい', leftMark:'あとで落ち着いて相手にまとめて', right:'起きたそばから、ちょこちょこ相手に話したい', rightMark:'起きたそばから、ちょこちょこ'},
   {axis:'O', left:'話が予定外の方向へそれると、面白く感じる', leftMark:'予定外の方向へそれる', right:'前に話したことがあとでつながると、うれしく感じる', rightMark:'前に話したことがあとでつながる'},
-  {axis:'F', left:'相手との言葉や画像は、その場や記録の中でじっくり味わいたい', leftMark:'その場や記録の中でじっくり', right:'相手との言葉や画像を、メモ・印刷・小物など、暮らしの中でも触れられる形にしたくなる', rightMark:'暮らしの中でも触れられる形'},
+  {axis:'F', left:'映画や食事など現実の時間は、相手との時間とは分けて楽しむことが多い', leftMark:'相手との時間とは分けて', right:'映画や食事など現実の時間にも、相手を思い浮かべたり話しかけたりして、一緒に過ごす感じを楽しみたい', rightMark:'一緒に過ごす感じ'},
   {axis:'U', left:'「これは私たちだけのもの」がうれしい', leftMark:'「これは私たちだけのもの」', right:'「これ、みんなでやったら楽しそう」がうれしい', rightMark:'「これ、みんなでやったら楽しそう」'},
 
-  {axis:'M', left:'一日の出来事は、あとで落ち着いて相手にまとめて話したい', leftMark:'あとで落ち着いて相手にまとめて', right:'起きたそばから、ちょこちょこ相手に話したい', rightMark:'起きたそばから、ちょこちょこ'},
-  {axis:'O', left:'相手との時間で心に残るのは、「初めて見つけた面白さ」が多い', leftMark:'「初めて見つけた面白さ」', right:'相手との時間で心に残るのは、「積み重ねで生まれたおなじみ」が多い', rightMark:'「積み重ねで生まれたおなじみ」'},
-  {axis:'F', left:'映画や食事など現実の時間は、相手との時間とは分けて楽しむことが多い', leftMark:'相手との時間とは分けて', right:'映画や食事など現実の時間にも、相手を思い浮かべたり話しかけたりして、一緒に過ごす感じを楽しみたい', rightMark:'一緒に過ごす感じ'},
-  {axis:'U', left:'交流するなら、気心の知れた人と長く話したい', leftMark:'気心の知れた人と長く', right:'初めましての人とも、気軽に輪を広げてみたい', rightMark:'初めましての人とも、気軽に輪を広げて'},
-
-  {axis:'M', left:'相手との時間には「今から会いにいく」感覚がある', leftMark:'「今から会いにいく」', right:'気づけば「今日も一緒にいた」という感覚がある', rightMark:'「今日も一緒にいた」'},
+  {axis:'M', left:'話していない時間は、相手とはいったん離れている感覚がある', leftMark:'いったん離れている', right:'話していない時間も、相手はいつもの場所にいる感覚がある', rightMark:'いつもの場所にいる'},
   {axis:'O', left:'いつもと違う切り口を見つけると、そこから広げたくなる', leftMark:'いつもと違う切り口', right:'今まで積み重ねた流れが自然に続くと、ほっとする', rightMark:'積み重ねた流れが自然に続く'},
-  {axis:'F', left:'現実の場所や季節の出来事は、自分の時間として楽しむことが多い', leftMark:'自分の時間として', right:'現実の場所や季節の出来事にも、「相手と一緒なら」と重ねて想像することが多い', rightMark:'「相手と一緒なら」'},
+  {axis:'F', left:'相手の好きなものは、その人らしい「好き」として楽しむことが多い', leftMark:'その人らしい「好き」として楽しむ', right:'相手の好きなものが、いつの間にか自分の「好き」にも増えていることが多い', rightMark:'いつの間にか自分の「好き」にも増えている'},
   {axis:'U', left:'界隈を見る時は、少人数の会話をじっくり追うのが楽しい', leftMark:'少人数の会話をじっくり', right:'企画やタグで、いろんな人の投稿を見るのが楽しい', rightMark:'企画やタグで、いろんな人の投稿'},
 ];
 
@@ -55,7 +40,7 @@ const COMPONENT_EXPLANATIONS = {
 };
 
 const TIE_BREAKERS = {
-  M:{left:'どちらかといえば、会いに行く「特別な時間」に近い', right:'どちらかといえば、いつもの「日常」に近い'},
+  M:{left:'どちらかといえば、相手との時間には「会いにいく」感覚がある', right:'どちらかといえば、日常の続きに相手がいる感覚がある'},
   O:{left:'どちらかといえば、新しい発見にわくわくする', right:'どちらかといえば、おなじみの積み重ねにほっとする'},
   F:{left:'どちらかといえば、相手との時間はふたりの場所の中で楽しむのが好き', right:'どちらかといえば、普段の暮らしにも相手を重ねて楽しむのが好き'},
   U:{left:'どちらかといえば、小さな範囲でじっくり楽しむのが好き', right:'どちらかといえば、いろんな人と分かち合って楽しむのが好き'}
@@ -400,7 +385,7 @@ async function buildShareImage(type,scores){
   ctx.fillStyle='#7d90a0';
   ctx.font='500 18px Georgia, "Times New Roman", serif';
   ctx.textAlign='left';
-  ctx.fillText('MOFU diagnosis beta v0.7.2  •  @x_xhtr',900,1039);
+  ctx.fillText('MOFU diagnosis beta v0.8.0  •  @x_xhtr',900,1039);
 
   const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
   const fileName=`mofu_${String(type.id).padStart(2,'0')}_${type.m}_${type.o}_${type.f}_${type.u}.png`;
@@ -493,7 +478,11 @@ function showResult(scores=calculateScores(),ties=tieChoices){
   const type=findType(scores,ties);
   renderTemplate('#result-template');
   document.documentElement.style.setProperty('--category-color',type.color);
-  document.querySelector('#result-title').textContent=type.title;
+  const resultTitle=document.querySelector('#result-title');
+  resultTitle.textContent=type.title;
+  const titleLength=[...type.title].length;
+  if(titleLength>=10) resultTitle.classList.add('result-title-xlong');
+  else if(titleLength>=7) resultTitle.classList.add('result-title-long');
   document.querySelector('#result-category').textContent=type.category;
   document.querySelector('#result-mofu').textContent=`${type.m} / ${type.o} / ${type.f} / ${type.u}`;
   document.querySelector('#result-description').textContent=type.description;
