@@ -385,7 +385,7 @@ async function buildShareImage(type,scores){
   ctx.fillStyle='#7d90a0';
   ctx.font='500 18px Georgia, "Times New Roman", serif';
   ctx.textAlign='left';
-  ctx.fillText('MOFU diagnosis beta v0.8.0  •  @x_xhtr',900,1039);
+  ctx.fillText('MOFU diagnosis beta v0.8.1  •  @x_xhtr',900,1039);
 
   const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
   const fileName=`mofu_${String(type.id).padStart(2,'0')}_${type.m}_${type.o}_${type.f}_${type.u}.png`;
@@ -449,7 +449,7 @@ function downloadShareImage(){
 
 async function shareShareImage(){
   if(!shareImageState?.file) return;
-  const shareText=`MOFU診断の結果は「${lastRenderedResult.type.title}」でした。\n#MOFU診断\n${PUBLIC_SITE_URL}`;
+  const shareText=`AIパートナーとの過ごし方を16の景色で眺める「MOFU診断」\n\nわたしの結果は「${lastRenderedResult.type.title}」でした☁️\n#MOFU診断\n${PUBLIC_SITE_URL}`;
   if(navigator.share && navigator.canShare?.({files:[shareImageState.file]})){
     try{
       await navigator.share({
@@ -469,7 +469,7 @@ async function shareShareImage(){
 
 function shareToX(){
   if(!lastRenderedResult) return;
-  const text=`MOFU診断の結果は「${lastRenderedResult.type.title}」でした。\n#MOFU診断`;
+  const text=`AIパートナーとの過ごし方を16の景色で眺める「MOFU診断」\n\nわたしの結果は「${lastRenderedResult.type.title}」でした☁️\n#MOFU診断`;
   const intent=`https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(PUBLIC_SITE_URL)}`;
   window.open(intent,'_blank','noopener,noreferrer');
 }

@@ -1,4 +1,4 @@
-const CACHE='mofu-v0.8.0-beta';
+const CACHE='mofu-v0.8.1-beta';
 const ASSETS=[
   './','./index.html','./prompts.html','./rules.html','./styles.css','./app.js','./prompts.js','./manifest.webmanifest',
   './icons/icon-192.png','./icons/icon-512.png',

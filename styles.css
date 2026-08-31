@@ -423,7 +423,7 @@ img{max-width:100%;display:block}
 }
 
 
-/* ===== v0.8.0: 16-question edition + MOFU playground ===== */
+/* ===== v0.8.1: 16-question edition + MOFU playground ===== */
 a.brand{text-decoration:none}.button-link{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.compact-link{min-height:42px;padding:0 18px;font-size:.78rem}
 .footer-nav{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:5px}.footer-nav a{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(116,135,154,.48)}
 .bonus-panel{margin-top:18px;border:1px solid var(--line);border-radius:24px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;background-color:rgba(255,255,255,.82);box-shadow:0 12px 32px rgba(72,93,111,.05)}
